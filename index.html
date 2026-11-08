@@ -157,9 +157,12 @@
                 </div>
             </div>
 
-            <!-- Десерты -->
+            <!-- Десерты (Вишневый Пирожок с надежной стилизованной плашкой) -->
             <div class="product-card" data-category="deserts">
-                <img class="product-img" src="https://images.unsplash.com/photo-1621236378699-8599fac6b898?auto=format&fit=crop&w=500&q=80" alt="Вишневый Пирожок">
+                <div class="product-img-fallback">
+                    🥧
+                    <span>Горячий пирожок</span>
+                </div>
                 <div class="product-body">
                     <h3 class="product-title">Вишневый Пирожок</h3>
                     <p class="product-desc">Горячий хрустящий пирожок с сочной начинкой из спелой вишни.</p>
@@ -238,7 +241,7 @@
             if (item) {
                 item.count += delta;
                 if (item.count <= 0) {
-                    cart = cart.filter(i => i.title !== title);
+                    cart = cart.filter(i => item.title !== title);
                 }
             }
             updateCartUI();
