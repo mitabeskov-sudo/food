@@ -166,12 +166,27 @@
             background-color: var(--accent-orange-hover);
         }
 
-        .hero-image img {
+        /* Стильная графическая иконка вместо битой картинки для героя */
+        .hero-image-placeholder {
             width: 100%;
             max-width: 480px;
+            height: 320px;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
             border-radius: var(--radius-lg);
-            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
-            object-fit: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+            border: 2px dashed rgba(255, 94, 0, 0.3);
+        }
+
+        .hero-image-placeholder span {
+            font-size: 16px;
+            color: var(--accent-orange);
+            font-weight: 700;
+            margin-top: 10px;
         }
 
         /* --- ФИЛЬТР КАТЕГОРИЙ --- */
@@ -238,11 +253,16 @@
             border-color: var(--bg-card-hover);
         }
 
-        .product-img {
+        /* Карточки с красивой иконкой блюда */
+        .product-img-box {
             width: 100%;
-            height: 190px;
-            object-fit: cover;
-            background-color: #0f172a;
+            height: 180px;
+            background: linear-gradient(135deg, #111827 0%, #1e293b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 54px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .product-body {
@@ -431,7 +451,7 @@
 
         @media (max-width: 768px) {
             .hero { grid-template-columns: 1fr; text-align: center; }
-            .hero-image { display: none; }
+            .hero-image-placeholder { margin: 0 auto; }
             .nav-links { display: none; }
         }
     </style>
@@ -464,8 +484,9 @@
             <p>Горячие бургеры, хрустящие закуски, комбо-наборы и свежие десерты.</p>
             <a href="#menu" class="btn-main">Выбрать еду</a>
         </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Сочный бургер">
+        <div class="hero-image-placeholder">
+            🍔
+            <span>Vintage Food Menu</span>
         </div>
     </section>
 
@@ -486,7 +507,7 @@
 
             <!-- Бургеры -->
             <div class="product-card" data-category="burgers">
-                <img class="product-img" src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" alt="Винтаж Бургер">
+                <div class="product-img-box">🍔</div>
                 <div class="product-body">
                     <h3 class="product-title">Винтаж Бургер</h3>
                     <p class="product-desc">Сочная говяжья котлета, сыр чеддер, маринованные огурчики и фирменный соус.</p>
@@ -498,7 +519,7 @@
             </div>
 
             <div class="product-card" data-category="burgers">
-                <img class="product-img" src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" alt="Двойной Чизбургер">
+                <div class="product-img-box">🧀🍔</div>
                 <div class="product-body">
                     <h3 class="product-title">Двойной Чизбургер</h3>
                     <p class="product-desc">Две говяжьи котлеты, двойная порция тянущегося сыра чеддер и лук.</p>
@@ -511,7 +532,7 @@
 
             <!-- Комбо Наборы -->
             <div class="product-card" data-category="combos">
-                <img class="product-img" src="https://images.unsplash.com/photo-1610440042657-612c34d95e9f?auto=format&fit=crop&w=500&q=80" alt="Комбо Обед №1">
+                <div class="product-img-box">🍟🥤</div>
                 <div class="product-body">
                     <h3 class="product-title">Комбо Обед №1</h3>
                     <p class="product-desc">Бургер на выбор, хрустящий картофель фри и прохладная кола 0.5л.</p>
@@ -523,7 +544,7 @@
             </div>
 
             <div class="product-card" data-category="combos">
-                <img class="product-img" src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=500&q=80" alt="Большое Комбо на Двоих">
+                <div class="product-img-box">🎉🍟</div>
                 <div class="product-body">
                     <h3 class="product-title">Комбо на Двоих</h3>
                     <p class="product-desc">2 больших бургера, большая порция картофеля фри, наггетсы и 2 соуса.</p>
@@ -536,7 +557,7 @@
 
             <!-- Курица -->
             <div class="product-card" data-category="chicken">
-                <img class="product-img" src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80" alt="Чикен Аппетитный">
+                <div class="product-img-box">🍗</div>
                 <div class="product-body">
                     <h3 class="product-title">Чикен Аппетитный</h3>
                     <p class="product-desc">Хрустящее куриное филе в панировке со свежим салатом айсберг и соусом.</p>
@@ -548,7 +569,7 @@
             </div>
 
             <div class="product-card" data-category="chicken">
-                <img class="product-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=80" alt="Куриные Наггетсы (9 шт)">
+                <div class="product-img-box">🔥🍗</div>
                 <div class="product-body">
                     <h3 class="product-title">Куриные Наггетсы (9 шт)</h3>
                     <p class="product-desc">Нежные кусочки куриного филе в хрустящей золотистой панировке.</p>
@@ -561,7 +582,7 @@
 
             <!-- Закуски -->
             <div class="product-card" data-category="snacks">
-                <img class="product-img" src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" alt="Картофель Фри">
+                <div class="product-img-box">🍟</div>
                 <div class="product-body">
                     <h3 class="product-title">Картофель Фри</h3>
                     <p class="product-desc">Золотистые хрустящие брусочки отборного картофеля со специями.</p>
@@ -573,7 +594,7 @@
             </div>
 
             <div class="product-card" data-category="snacks">
-                <img class="product-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=500&q=80" alt="Картофель по-деревенски">
+                <div class="product-img-box">🥔</div>
                 <div class="product-body">
                     <h3 class="product-title">Картофель по-деревенски</h3>
                     <p class="product-desc">Крупные дольки картофеля в ароматной пряной корочке, запеченные до хруста.</p>
@@ -586,7 +607,7 @@
 
             <!-- Десерты -->
             <div class="product-card" data-category="deserts">
-                <img class="product-img" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Вишневый Пирожок">
+                <div class="product-img-box">🥧</div>
                 <div class="product-body">
                     <h3 class="product-title">Вишневый Пирожок</h3>
                     <p class="product-desc">Горячий хрустящий пирожок с сочной начинкой из спелой вишни.</p>
@@ -598,7 +619,7 @@
             </div>
 
             <div class="product-card" data-category="deserts">
-                <img class="product-img" src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" alt="Клубничный Чизкейк">
+                <div class="product-img-box">🍰</div>
                 <div class="product-body">
                     <h3 class="product-title">Клубничный Чизкейк</h3>
                     <p class="product-desc">Нежный сливочный десерт на песочной основе с ароматным клубничным топпингом.</p>
@@ -646,6 +667,10 @@
     <script>
         let cart = [];
 
+        function toggleCard() {
+            document.getElementById('cartModal').classList.toggle('open');
+        }
+        
         function toggleCart() {
             document.getElementById('cartModal').classList.toggle('open');
         }
@@ -707,6 +732,7 @@
             buttonElement.classList.add('active');
 
             const cards = document.querySelectorAll('.product-card');
+            cards.files;
             cards.forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
                     card.style.display = 'flex';
